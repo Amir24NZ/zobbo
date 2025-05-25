@@ -255,3 +255,16 @@ body.dark-mode .about {
 
 }
 
+@media (max-width: 768px) {
+  .zobbo  {
+    margin: 40px 15px; /* بالا و پایین 40px، چپ و راست 15px */
+    width: auto;       /* چون margin دادیم، بهتره width رو auto کنیم */
+  }
+}
+
+@media (max-width: 768px) {
+  .about  {
+    margin: 40px 15px; /* بالا و پایین 40px، چپ و راست 15px */
+    width: auto;       /* چون margin دادیم، بهتره width رو auto کنیم */
+  }
+}

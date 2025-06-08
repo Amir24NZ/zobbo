@@ -13,13 +13,16 @@
     <meta property="og:image" content="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/zobbop.png">
     <meta property="og:url" content="https://zobbo.ir">
     <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0d7a0d">
     <link rel="icon" href="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="zobbo.css?v=2.3">
+    <link rel="stylesheet" href="zobbo.css?v=2.4">
 </head>
 <body>
     <header>
         <div class="menu-container">
-            <!-- دکمه ماه و خورشید برای تغییر حالت دارک و لایت مود -->
+            <button class="hamburger-menu" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
             <button id="dark-mode-btn" class="dark-mode-toggle" onclick="toggleDarkMode()">
                 <i class="fa-regular fa-moon"></i>
             </button>
@@ -28,7 +31,15 @@
         <p>به دنیای تکنولوژی و کامپیوتر خوش آمدید :) </p>
     </header>
 
-    <section class="zobbo" dir="rtl">
+    <nav id="main-nav" class="navbar">
+        <ul>
+            <li><a href="#" class="nav-link" data-target="zobbo-section">زوبو</a></li>
+            <li><a href="#" class="nav-link" data-target="portfolio-section">نمونه کارها</a></li>
+            <li><a href="#" class="nav-link" data-target="team-section">عوامل سایت</a></li>
+        </ul>
+    </nav>
+
+    <section id="zobbo-section" class="zobbo" dir="rtl">
         <div class="zbo">
             <img src="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/zobbop.png" alt="pic" class="zobbo-pic">
             <h2>زوبو | zobbo</h2> 
@@ -41,60 +52,77 @@
                 <a href="https://T.me/zobboo" target="_blank"><i class="fa-brands fa-telegram"></i></a>
             <p>کانال یوتیوب زوبو 👇</p>
                 <a href="https://youtube.com/@zobbo_official" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <p>کانال اینستاگرام زوبو 👇</p>
+                <a href="https://www.instagram.com/zobbo.official" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 </div>
         </div>
- 
+    </section>
+
+    <section id="portfolio-section" class="about" dir="rtl">
+        <div class="abt2">
+           <h2 style="text-align: center;">نمونه کارها</h2> 
+        </div>
+        <p style="text-align: center;">در اینجا می‌توانید برخی از نمونه کارهای ما را مشاهده کنید:</p>
+        <div class="portfolio-items">
+            <div class="portfolio-item">
+                <a href="https://zitool.ir" target="_blank">zitool.ir</a>
+                <img src="https://zitool.ir/favicon.ico" alt="Zitool Logo" class="portfolio-logo">
+            </div>
+            <div class="portfolio-item">
+                <a href="https://chamransystem.ir" target="_blank">chamransystem.ir</a>
+                <img src="https://chamransystem.ir/img/logo.png" alt="Chamran System Logo" class="portfolio-logo">
+            </div>
+        </div>
+    </section>
+    <div id="team-section" dir="rtl">
+        <h2>عوامل سایت</h2>
+        <section class="about">
+            <div class="abt">
+                <img src="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/amir.jpg" alt="pic" class="about-pic">
+                <h2>Amir NZ</h2> 
+            </div>
+            <p>برنامه نویس python,html,css,js ،سازنده و مدیر استودیو</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/amir124nz/profilecard/?igsh=MWxzNHdjNzJzOXhpZA==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://t.me/Amir24NZ" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://github.com/Amir24NZ" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </section>
+
+       <section class="about">
+        <div class="abt">
+            <img src="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/amin.jpg" alt="pic" class="about-pic">
+            <h2>Amin MT</h2> 
+        </div>
+        <p>برنامه نویس ++C و JS ، دوست قدیمی ♥</p>
+        <div class="social-links">
+        <a href="https://github.com/slimeedude" target="_blank"><i class="fa-brands fa-github"></i></a>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="abt">
+            <img src="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/mahan.jpg" alt="pic" class="about-pic">
+            <h2>Mahan Bahri</h2> 
+        </div>
+        <p>برنامه نویس #C و ادیتور</p>
+        <div class="social-links">
+            <a href="https://t.me/Mahanbahreee" target="_blank"><i class="fa-brands fa-telegram"></i></a>
             </div>
     </section>
 
-    <section class="about" dir="rtl">
+    <section class="about">
         <div class="abt">
-            <img src="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/amir.jpg" alt="pic" class="about-pic">
-            <h2>Amir NZ</h2> 
+            <img src="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/siroos.jpg" alt="pic" class="about-pic">
+            <h2>Siroos</h2> 
         </div>
-        <p>برنامه نویس python,html,css,js ،سازنده و مدیر استودیو</p>
+        <p>برنامه نویس #C ، بازی ساز و یک هنرمند!</p>
         <div class="social-links">
-            <!-- لینک به شبکه‌های اجتماعی -->
-            <a href="https://www.instagram.com/amir124nz/profilecard/?igsh=MWxzNHdjNzJzOXhpZA==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://t.me/Amir24NZ" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-            <a href="https://github.com/Amir24NZ" target="_blank"><i class="fa-brands fa-github"></i></a>
-        </div>
+            <a href="https://github.com/siroos0000" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://siroos.itch.io/" target="_blank"><i class="fa-brands fa-itch-io"></i></a>
+            </div>
     </section>
-
-   <section class="about" dir="rtl">
-    <div class="abt">
-        <img src="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/amin.jpg" alt="pic" class="about-pic">
-        <h2>Amin MT</h2> 
     </div>
-    <p>برنامه نویس ++C و JS ، دوست قدیمی ♥</p>
-    <div class="social-links">
-    <a href="https://github.com/slimeedude" target="_blank"><i class="fa-brands fa-github"></i></a>
-    </div>
-</section>
-
-<section class="about" dir="rtl">
-    <div class="abt">
-        <img src="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/mahan.jpg" alt="pic" class="about-pic">
-        <h2>Mahan Bahri</h2> 
-    </div>
-    <p>برنامه نویس #C و ادیتور</p>
-    <div class="social-links">
-        <a href="https://t.me/Mahanbahreee" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-        </div>
-</section>
-
-<section class="about" dir="rtl">
-    <div class="abt">
-        <img src="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/siroos.jpg" alt="pic" class="about-pic">
-        <h2>Siroos</h2> 
-    </div>
-    <p>برنامه نویس #C ، بازی ساز و یک هنرمند!</p>
-    <div class="social-links">
-        <a href="https://github.com/siroos0000" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://siroos.itch.io/" target="_blank"><i class="fa-brands fa-itch-io"></i></a>
-        </div>
-</section>
-
     <main>
         <section class="content">
              
@@ -106,10 +134,10 @@
     </button>
 
     <footer>
-        <p>zobbo | زوبو &copy; (2024-2025)</p>
+        <p>zobbo | زوبو © (2024-2025)</p>
         <a href="https://t.me/Amir24NZ" target="_blank">ساخته شده توسط Amir24NZ</a>
     </footer>
     
-    <script src="zobbo.js?v=2.3"></script>
+    <script src="zobbo.js?v=2.4"></script>
 </body>
 </html>

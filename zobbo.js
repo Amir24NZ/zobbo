@@ -32,13 +32,21 @@ window.onload = function() {
     } else {
         document.body.classList.remove('dark-mode');
     }
+    // اضافه کردن event listener برای لینک‌های منو بعد از بارگذاری صفحه
+    addSmoothScrollListeners();
 };
+
+// تابع برای باز و بسته کردن منوی همبرگری
+function toggleMenu() {
+    const nav = document.getElementById('main-nav');
+    nav.classList.toggle('active');
+}
 
 // تابع برای اسکرول به بالا
 function scrollToTop() {
     window.scrollTo({
-        top: 0,  // به بالای صفحه برو
-        behavior: 'smooth'  // با افکت صاف
+        top: 0,
+        behavior: 'smooth'
     });
 }
 
@@ -46,8 +54,31 @@ function scrollToTop() {
 window.onscroll = function() {
     const scrollBtn = document.getElementById("scrollToTopBtn");
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollBtn.style.display = "block";  // نمایش دکمه
+        scrollBtn.style.display = "block";
     } else {
-        scrollBtn.style.display = "none";   // مخفی کردن دکمه
+        scrollBtn.style.display = "none";
     }
 };
+
+// تابع برای اضافه کردن smooth scrolling به لینک‌های منو
+function addSmoothScrollListeners() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // جلوگیری از رفتار پیش‌فرض لینک
+
+            const targetId = this.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                // برای اسکرول نرم
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start' // اسکرول به ابتدای عنصر
+                });
+                // بستن منو بعد از کلیک
+                toggleMenu(); 
+            }
+        });
+    });
+}

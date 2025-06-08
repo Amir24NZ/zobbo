@@ -1,21 +1,24 @@
 body {
-    font-family: 'Vazir', sans-serif; /* استفاده از فونت Lalezar */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* سایه برای خواناتر شدن */
+    font-family: 'Vazir', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     margin: 0;
     padding: 0;
-    background-color: #f3f3f3;
+    background-color: #f3f3f3; /* رنگ پس‌زمینه در حالت عادی */
     direction: rtl;
     text-align: center;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
-    background-color: #0d7a0d ;
+    background-color: #0d7a0d ; /* رنگ هدر در حالت عادی */
     color: white;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px; 
+    border-bottom-left-radius: 15px; /* Border radius */
+    border-bottom-right-radius: 15px; /* Border radius */
     padding: 20px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header h1 {
@@ -34,13 +37,21 @@ header p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .hamburger-menu {
-    font-size: 30px;
-    cursor: pointer; 
-    
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    color: white;
+    order: 1;
 }
 
 .dark-mode-toggle {
@@ -50,12 +61,13 @@ header p {
     font-size: 24px;
     padding: 10px;
     color: white;
+    order: 2;
 }
+
 
 main {
     padding: 20px;
 }
-
 
 .content p {
     font-size: 18px;
@@ -63,42 +75,59 @@ main {
 }
 
 footer {
-    background-color: #0d7a0d ;
+    background-color: #0d7a0d ; /* رنگ فوتر در حالت عادی */
     color: white;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px; 
+    border-top-left-radius: 15px; /* Border radius */
+    border-top-right-radius: 15px; /* Border radius */
     padding: 20px;
     position: relative;
 }
 
-
 footer a {
-
     color: #9fe6eb;
 }
+
+/* منوی ناوبری (جدید) */
 .navbar {
     display: none;
-    background-color: #30db3e;
+    background-color: #074507; /* رنگ پس‌زمینه منو - همرنگ کادرهای افراد عوامل */
     position: absolute;
     top: 60px;
-    right: 0;
+    right: 10px;
     width: 200px;
     padding: 10px;
     list-style-type: none;
-    border-radius: 5px;
+    border-radius: 15px; /* Border radius */
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar.active {
+    display: block;
 }
 
 .navbar ul {
     padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 .navbar ul li {
     margin: 10px 0;
+    text-align: right;
 }
 
 .navbar ul li a {
     color: white;
     text-decoration: none;
+    display: block;
+    padding: 8px 15px;
+    border-radius: 15px; /* Border radius */
+    transition: background-color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    background-color: #30db3e;
 }
 
 /* استایل بخش "درباره" */
@@ -112,65 +141,62 @@ footer a {
 /* دکمه دایره‌ای */
 #scrollToTopBtn {
     position: fixed;
-    bottom: 20px;  /* فاصله از پایین صفحه */
-    left: 20px;    /* فاصله از سمت چپ صفحه */
-    width: 50px;   /* عرض دکمه */
-    height: 50px;  /* ارتفاع دکمه */
-    border-radius: 50%;  /* گرد کردن گوشه‌های دکمه */
-    background-color: #074507 ;  /* رنگ پس‌زمینه دکمه */
-    color: white;  /* رنگ متن */
-    font-size: 24px;  /* اندازه فونت */
-    border: none;   /* حذف مرز */
-    cursor: pointer;  /* تغییر نشانگر موس به حالت دست */
-    display: none;  /* به طور پیش‌فرض دکمه مخفی باشد */
-    align-items: center;  /* قرار دادن محتوای دکمه در مرکز */
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* این دکمه دایره‌ای باقی می‌ماند */
+    background-color: #074507;
+    color: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    display: none;
+    align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  /* سایه نرم برای دکمه */
-    transition: background-color 0.3s ease;  /* افکت تغییر رنگ */
-    z-index: 9999; /* اطمینان از اینکه دکمه روی سایر عناصر قرار گیرد */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    z-index: 9999;
 }
 
 #scrollToTopBtn:hover {
-    background-color: #30db3e;  /* رنگ دکمه در حالت هاور */
+    background-color: #30db3e;
 }
 
 /* اطمینان از اینکه فوتر روی دکمه دایره‌ای نرود */
 footer {
     position: relative;
-    z-index: 1; /* دکمه دایره‌ای بالاتر از فوتر باشد */
+    z-index: 1;
 }
 
 .social-links {
     display: flex;
-    flex-direction: column; /* نمایش عمودی */
-    align-items: center; /* قرار گرفتن لینک‌ها در مرکز */
-    gap: 10px; /* فاصله بین لینک‌ها */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
     margin-top: 20px;
 }
 
 .social-links a {
     display: inline-block;
-    width: 256px; /* عرض مستطیل */
-    padding: 10px 0; /* فاصله داخلی */
-    text-align: center; /* متن در مرکز */
-    background-color: #ffffff; /* رنگ پس‌زمینه */
-    color: #000000; /* رنگ متن */
-    border-radius: 15px; /* گوشه‌های گرد */
-    text-decoration: none; /* حذف خط زیر متن */
+    width: 256px;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 15px; /* Border radius */
+    text-decoration: none;
     font-weight: bold;
-    transition: background-color 0.3s ease; /* افکت تغییر رنگ */
+    transition: background-color 0.3s ease;
 }
 
 .social-links a:hover {
-    background-color: #30db3e; /* رنگ در حالت هاور */
+    background-color: #30db3e;
 }
 
-body.dark-mode .zobbo{
-    background: #052e05
-}
-
+/* دارک مود */
 body.dark-mode {
-    background-color: #000000;
+    background-color: #1a1a1a;
     color: white;
 }
 
@@ -182,9 +208,111 @@ body.dark-mode footer {
     background-color: #052e05;
 }
 
-body.dark-mode .about {
-    background: #052e05
+body.dark-mode .zobbo {
+    background: #052e05;
 }
+
+body.dark-mode .about {
+    background: #052e05;
+}
+
+body.dark-mode .navbar {
+    background-color: #031e03; /* رنگ منوی دارک مود - همرنگ کادرهای افراد عوامل در دارک مود */
+}
+
+
+/* استایل کادر اصلی برای عوامل سایت */
+#team-section {
+    margin: 40px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    background: #0d7a0d; /* رنگ کادر اصلی عوامل سایت در حالت عادی */
+    border-radius: 15px; /* Border radius */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+body.dark-mode #team-section {
+    background: #052e05; /* رنگ کادر اصلی عوامل سایت در حالت دارک مود */
+}
+
+
+#team-section .about {
+    /* هر کادر نفر داخل کانتینر اصلی */
+    background: #074507; /* رنگ کادر هر عامل در حالت عادی (تفاوت با کادر اصلی) */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 15px; /* Border radius */
+    text-align: right;
+}
+
+body.dark-mode #team-section .about {
+    background: #031e03; /* رنگ کادر هر عامل در حالت دارک مود (تفاوت با کادر اصلی دارک مود) */
+}
+
+#team-section .about .abt {
+    display: flex;
+}
+
+#team-section .about p {
+    text-align: justify;
+    color: #f9f4fa;
+}
+
+#team-section .about h2 {
+    color: #fff;
+}
+
+
+/* استایل برای بخش نمونه کارها */
+.portfolio-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.portfolio-item {
+    display: flex;
+    align-items: center;
+    width: 256px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-radius: 15px; /* Border radius */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.portfolio-item:hover {
+    background-color: #30db3e;
+}
+
+.portfolio-item .portfolio-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    margin-left: 0;
+    border-radius: 50%; /* لوگو دایره‌ای باقی می‌ماند */
+}
+
+.portfolio-item a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.portfolio-item:hover a {
+    color: white;
+}
+
 
 .about {
     margin: 40px auto;
@@ -192,35 +320,39 @@ body.dark-mode .about {
     width: 90%;
     max-width: 600px;
     background: #0d7a0d;
-    border-radius: 15px; /* گوشه گرد برای بخش اصلی */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* سایه زیبا برای برجسته شدن */
+    border-radius: 15px; /* Border radius */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     text-align: justify;
     
 }
 
-.about h2 {
+.about h2, #team-section h2 {
     color: #fff;
     font-size: 1.8em;
     margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .about h2, body.dark-mode #team-section h2 {
+    color: white;
 }
 
 .about p {
     line-height: 1.6;
     font-size: 1em;
     margin: 10px 0;
-    color: #f9f4fa; /* رنگ متن روشن‌تر برای خوانایی بهتر */
+    color: #f9f4fa;
 }
 
 .about-pic {
     width: 100px;
-    height: px;
-    border-radius: 100px;
+    height: 100px; 
+    border-radius: 100px; /* عکس پروفایل دایره‌ای باقی می‌ماند */
     margin-left: 15px;
 
 }
 
 .abt {
-
     display: flex;
 }
 
@@ -230,8 +362,8 @@ body.dark-mode .about {
     width: 90%;
     max-width: 600px;
     background: #0d7a0d;
-    border-radius: 15px; /* گوشه گرد برای بخش اصلی */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* سایه زیبا برای برجسته شدن */
+    border-radius: 15px; /* Border radius */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     align-items: center;
     
 }
@@ -246,25 +378,39 @@ body.dark-mode .about {
     line-height: 1.6;
     font-size: 1em;
     margin: 10px 0;
-    color: #f9f4fa; /* رنگ متن روشن‌تر برای خوانایی بهتر */
+    color: #f9f4fa;
 }
 
 .zobbo-pic {
     width: 200px;
-    height: px;
-
+    height: auto; 
+    border-radius: 15px; /* Border radius */
 }
+
+
 
 @media (max-width: 768px) {
   .zobbo  {
-    margin: 40px 15px; /* بالا و پایین 40px، چپ و راست 15px */
-    width: auto;       /* چون margin دادیم، بهتره width رو auto کنیم */
+    margin: 40px 15px; 
+    width: auto;       
   }
 }
 
 @media (max-width: 768px) {
   .about  {
-    margin: 40px 15px; /* بالا و پایین 40px، چپ و راست 15px */
-    width: auto;       /* چون margin دادیم، بهتره width رو auto کنیم */
+    margin: 40px 15px; 
+    width: auto;       
   }
+}
+
+/* Media Query برای بخش عوامل سایت در سایزهای کوچک */
+@media (max-width: 768px) {
+    #team-section { /* اعمال به کانتینر اصلی عوامل */
+        margin: 40px 15px;
+        width: auto;
+    }
+    #team-section .about { /* اعمال به کادرهای هر فرد عوامل */
+        margin: 20px auto; /* می‌توانید این را هم 20px 15px کنید اگر می‌خواهید کادرهای داخلی هم از لبه‌ها فاصله داشته باشند */
+        width: auto;
+    }
 }
